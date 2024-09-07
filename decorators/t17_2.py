@@ -20,8 +20,8 @@ def to_range(a: int | float, b: int | float):
             if ann is not int and ann is not float:
                 raise TypeError("Return type of function must be int of float")
 
-        if a == 0 and b == 0:
-            raise ValueError("Values a or b must be greater than zero")
+        if a == b:
+            raise ValueError("Values a and b can't be equal")
 
         if a >= b: 
             a, b = b, a
