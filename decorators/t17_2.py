@@ -2,8 +2,22 @@ from functools import wraps
 
 
 def to_range(a: int | float, b: int | float): 
+    """
+    This decorator casts the value of 
+    the function to the range [a, b],
+    dynamicaly update max and min value 
+    that was already returned
+
+    :param a: int  
+    :param b: int
+    """
     def _decorator(func):
         nonlocal a, b
+
+        if "return" in func.__annotations__:
+            ann = func.__annotations__["return"]
+            if ann is not int and ann is not float:
+                raise TypeError("Return type of function must be int of float")
 
         if a == 0 and b == 0:
             raise ValueError("Values a or b must be greater than zero")
@@ -15,7 +29,7 @@ def to_range(a: int | float, b: int | float):
         mn: int | float = a # min value
 
         @wraps(func)
-        def _func(*args, **kwargs):
+        def _func(*args, **kwargs) -> int | float:
             nonlocal mx, mn, a, b
 
             res = func(*args, **kwargs)
@@ -29,7 +43,6 @@ def to_range(a: int | float, b: int | float):
                 mn = res
 
             return res / (mx - mn) * (b - a)
-
 
         return _func
     return _decorator
