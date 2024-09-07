@@ -1,3 +1,4 @@
+from typing import Callable, Any
 from functools import wraps
 
 
@@ -11,7 +12,7 @@ def to_range(a: int | float, b: int | float):
     :param a: int  
     :param b: int
     """
-    def _decorator(func):
+    def _decorator(func: Callable[[Any], int | float]):
         nonlocal a, b
 
         if "return" in func.__annotations__:
@@ -29,7 +30,7 @@ def to_range(a: int | float, b: int | float):
         mn: int | float = a # min value
 
         @wraps(func)
-        def _func(*args, **kwargs) -> int | float:
+        def _func(*args, **kwargs):
             nonlocal mx, mn, a, b
 
             res = func(*args, **kwargs)
@@ -48,7 +49,7 @@ def to_range(a: int | float, b: int | float):
     return _decorator
 
 
-@to_range(-1, 0)
+@to_range(0, 1)
 def func(x: int) -> int:
     return x * 2
 
@@ -59,4 +60,5 @@ if __name__ == "__main__":
     print(func(4))
     print(func(3))
     print(func(5))
+    print(func(1))
 
