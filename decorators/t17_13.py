@@ -3,7 +3,6 @@ from pprint import pp, pprint
 from functools import wraps
 
 
-
 MatrixTable: TypeAlias = list[list[int]]
 MatrixDict: TypeAlias = dict[int, list[int]]
 Matrix: TypeAlias = MatrixTable | MatrixDict
