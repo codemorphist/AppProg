@@ -35,14 +35,10 @@ def trace_class(cls: type) -> type:
 
 
 class TraceMeta(type):
-    _traced_cls = {}
-
     def __call__(cls, *args, **kwargs):
-        try:
-            TraceMeta._traced_cls[cls]
-        except KeyError:
+        if not hasattr(cls, "__traced__"):
             trace_class(cls)
-            TraceMeta._traced_cls[cls] = 1
+            setattr(cls, "__traced__", True)
         return type.__call__(cls, *args, **kwargs)
 
 
