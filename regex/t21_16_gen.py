@@ -30,7 +30,7 @@ def get_name() -> str:
     pat = random.choice(MAL_NAMES)
     patronymic = get_patronymic(pat, NAME is MAL_NAMES) 
 
-    if random.randint(0, 1) == 0:
+    if random.randint(0, 1):
         return " ".join([lastname, firstname, patronymic])
     else:
         return " ".join([lastname, firstname[0] + ".", patronymic[0] + "."])
@@ -39,7 +39,8 @@ def get_name() -> str:
 def get_phone() -> str:
     return " ".join([
         random.choice(["тел.", "телефон"]),
-        "+380" + str(random.randint(1000000000, 9999999999))
+        ("+" if random.randint(0,1) else "") +  
+        "380" + str(random.randint(1000000000, 9999999999))
     ])
 
 
@@ -64,6 +65,6 @@ def get_list(count: int, out: str):
 
 
 if __name__ == "__main__":
-    get_list(10, "debtors_list_1.txt")
+    get_list(1000, "debtors_list_1.txt")
 
 
