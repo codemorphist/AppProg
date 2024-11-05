@@ -5,14 +5,13 @@ MAL_NAMES = "Андрій,Артем,Богдан,Давид,Данило,Дми
 
 LASTNAMES = "Мельник,Шевченко,Коваленко,Бондаренко,Бойко,Ткаченко,Кравченко,Ковальчук,Олійник"
 
-
 FEM_NAMES = FEM_NAMES.split(",")
 MAL_NAMES = MAL_NAMES.split(",")
 LASTNAMES = LASTNAMES.split(",")
 
 
-def get_patronymic(pat: str, male: bool) -> str:
-    if male:
+def get_patronymic(pat: str, is_male: bool) -> str:
+    if is_male:
         return pat + ("вич" if pat[-1] == "о" else "ович")
     else:
         if pat[-1] == "о":
@@ -24,11 +23,10 @@ def get_patronymic(pat: str, male: bool) -> str:
 
 
 def get_name() -> str:
-    NAME = random.choice([FEM_NAMES, MAL_NAMES])
-    firstname = random.choice(FEM_NAMES)
+    firstname = random.choice(FEM_NAMES + MAL_NAMES)
     lastname = random.choice(LASTNAMES)
     pat = random.choice(MAL_NAMES)
-    patronymic = get_patronymic(pat, NAME is MAL_NAMES) 
+    patronymic = get_patronymic(pat, firstname in MAL_NAMES) 
 
     if random.randint(0, 1):
         return " ".join([lastname, firstname, patronymic])
@@ -45,7 +43,7 @@ def get_phone() -> str:
 
 
 def get_debt() -> str:
-    return f"{random.random() * 1000:.2f} грн."
+    return f"{random.uniform(1, 1000):.2f} грн."
 
 
 def get_debtor() -> str:
