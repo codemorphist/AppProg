@@ -6,12 +6,12 @@ def get_comp_addr() -> str:
     return ".".join([str(random.randint(0, 255)) for _ in range(4)]) 
 
 
-
 SITES = ["google.com", "netflix.com", "vk.com", "vk.ru", "ok.ru",
          "onlyfans.com", "rezka.hd", "kinogo.biz", "math.ru",
          "duckduckgo.com", "github.com", "youtube.com", "reddit.com",
          "diia.gov.ua", "wikipedia.com", "telegram.com", "dou.ua",
          "pentagon.com", "mil.ua", "privat24.ua"]
+
 def get_site() -> str:
     site = random.choice(SITES) 
     protocol = random.choice(["https://", "http://"])
@@ -27,6 +27,7 @@ def get_time() -> str:
                       seconds = random.randint(0, 60))
     gen_date = startdate + delta
     return gen_date.strftime("%d.%m.%Y %H:%M:%S")
+
 
 def get_record() -> str:
     return " ".join([

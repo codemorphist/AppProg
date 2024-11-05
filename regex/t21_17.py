@@ -54,6 +54,5 @@ def process_file(path: str, out: str):
         )
 
 
-
 if __name__ == "__main__":
     process_file("./provider_data.txt", "porushniki.txt")
