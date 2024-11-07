@@ -1,0 +1,2 @@
+The oldest file is: ./dir3/foo
+Creation time: 2024-11-07 13:09:02
