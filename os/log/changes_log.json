@@ -1,0 +1,60 @@
+{
+    "timestamp": "2024-11-07T14:33:11.675242",
+    "changes": {
+        "new": [
+            "./dir4/new_file"
+        ],
+        "deleted": [],
+        "modified": []
+    }
+}
+{
+    "timestamp": "2024-11-07T14:33:19.678941",
+    "changes": {
+        "new": [],
+        "deleted": [],
+        "modified": [
+            "./dir4/new_file"
+        ]
+    }
+}
+{
+    "timestamp": "2024-11-07T14:33:29.683899",
+    "changes": {
+        "new": [
+            "./dir4/file_to_remove"
+        ],
+        "deleted": [],
+        "modified": []
+    }
+}
+{
+    "timestamp": "2024-11-07T14:33:41.690816",
+    "changes": {
+        "new": [],
+        "deleted": [],
+        "modified": [
+            "./dir4/file_to_remove"
+        ]
+    }
+}
+{
+    "timestamp": "2024-11-07T14:33:46.693971",
+    "changes": {
+        "new": [],
+        "deleted": [],
+        "modified": [
+            "./dir4/file_to_remove"
+        ]
+    }
+}
+{
+    "timestamp": "2024-11-07T14:33:48.695241",
+    "changes": {
+        "new": [],
+        "deleted": [
+            "./dir4/file_to_remove"
+        ],
+        "modified": []
+    }
+}
