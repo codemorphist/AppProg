@@ -1,8 +1,8 @@
 | .c                   | Count: 1          | Total size:      75.0B |
 | .py                  | Count: 1          | Total size:      22.0B |
-| other                | Count: 1          | Total size:      94.0B |
+| other                | Count: 2          | Total size:     111.0B |
 | .s                   | Count: 1          | Total size:     332.0B |
-| .txt                 | Count: 1          | Total size:      12.0B |
+| .txt                 | Count: 1          | Total size:      29.0B |
 | .gif                 | Count: 2          | Total size:     1.4MiB |
 | .jpeg                | Count: 3          | Total size:   412.8KiB |
 | .webp                | Count: 1          | Total size:   232.4KiB |

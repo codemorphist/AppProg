@@ -1,9 +1,13 @@
 import os
 from utils import sizeof_fmt
+from typing import TypeAlias
 
 
-def get_stats(dir: str) -> dict[str, list[int, int]]:
-    stats: dict[str, ExtStat] = {}
+ExtStat: TypeAlias = list[int, int]
+ExtStats: TypeAlias = dict[str, ExtStat]
+
+def get_stats(dir: str) -> ExtStats:
+    stats: ExtStats = {}
     
     for dir, _, files in os.walk(dir):
         for file in files:
@@ -21,7 +25,7 @@ def get_stats(dir: str) -> dict[str, list[int, int]]:
 
 
 
-def stats_fmt(stats: dict[str, list[int, int]], out: str):
+def stats_fmt(stats: ExtStats, out: str):
     TEMP = "| {ext:<20} | Count: {count:<10} | Total size: {size:>10} |\n"
     with open(out, "w") as f:
         for ext, stat in stats.items():
