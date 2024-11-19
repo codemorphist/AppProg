@@ -6,6 +6,7 @@ from typing import TypeAlias
 ExtStat: TypeAlias = list[int, int]
 ExtStats: TypeAlias = dict[str, ExtStat]
 
+
 def get_stats(dir: str) -> ExtStats:
     stats: ExtStats = {}
     
@@ -22,7 +23,6 @@ def get_stats(dir: str) -> ExtStats:
                 stats[ext] = [1, size]
 
     return stats
-
 
 
 def stats_fmt(stats: ExtStats, out: str):

@@ -1,7 +1,7 @@
 import os
 
 
-def compare_files(dir1: str, dir2: str, out: str):
+def compare_files(dir1: str, dir2: str, out str):
     files1 = set(os.listdir(dir1))
     files2 = set(os.listdir(dir2))
     
@@ -24,7 +24,7 @@ def compare_files(dir1: str, dir2: str, out: str):
 
 
 if __name__ == "__main__":
-    dir1 = "./dir1/"
+    dir1 = "./dir1"
     dir2 = "./dir2"
     output_file = "t22_3_result.txt"
     compare_files(dir1, dir2, output_file)

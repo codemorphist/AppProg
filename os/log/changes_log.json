@@ -58,3 +58,53 @@
         "modified": []
     }
 }
+{
+    "timestamp": "2024-11-13T11:46:01.531100",
+    "changes": {
+        "new": [
+            "./dir4/new_dir"
+        ],
+        "deleted": [],
+        "modified": []
+    }
+}
+{
+    "timestamp": "2024-11-13T11:46:07.535152",
+    "changes": {
+        "new": [
+            "./dir4/file1"
+        ],
+        "deleted": [],
+        "modified": []
+    }
+}
+{
+    "timestamp": "2024-11-13T11:46:13.538428",
+    "changes": {
+        "new": [],
+        "deleted": [],
+        "modified": [
+            "./dir4/file1"
+        ]
+    }
+}
+{
+    "timestamp": "2024-11-13T11:46:29.547416",
+    "changes": {
+        "new": [],
+        "deleted": [
+            "./dir4/file1"
+        ],
+        "modified": []
+    }
+}
+{
+    "timestamp": "2024-11-13T11:46:39.552882",
+    "changes": {
+        "new": [],
+        "deleted": [
+            "./dir4/new_dir"
+        ],
+        "modified": []
+    }
+}
