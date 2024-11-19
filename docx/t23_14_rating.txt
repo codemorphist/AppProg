@@ -1,0 +1,5 @@
+Suppliers rating:
+  S_id      R  Name_S             Adress P_id          Name_P  Price  Term
+1  S02  0.616  Condor      condor@com.ua  P02  Кулькова ручка    2.4     6
+0  S01  0.400  Domino      domino@com.ua  P01         Олівець    2.5     5
+2  S03  0.008  Bariga  bariga@pravdi.net  P03     Ручка чорна    1.2    10
