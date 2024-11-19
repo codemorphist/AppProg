@@ -2,6 +2,7 @@ import os
 import re
 from docx import Document
 
+
 def replace_docx(path: str, ptr: str, repl: str):
     doc = Document(path)
     regex = re.compile(ptr)
@@ -27,11 +28,11 @@ def process_directory(path: str, ptr: str, repl: str):
 
 
 if __name__ == "__main__":
-    # dir = input()
-    # ptr = input()
-    # repl= input()
-    dir = "."
-    ptr = "___"
-    repl = "123"
+    dir = input()
+    ptr = input()
+    repl= input()
+    # dir = "."
+    # ptr = "___"
+    # repl = "123"
 
     process_directory(dir, ptr, repl)
