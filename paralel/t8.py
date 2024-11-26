@@ -17,6 +17,8 @@ class Hotel:
         self.rooms = [None] * num_rooms  
         self.lock = threading.Lock()  
         self.wait_queue = queue.Queue()  
+        self.total_queue_len = 0
+        self.queue_len_nums = 0
         self.total_wait_time = 0  
         self.completed_clients = 0  
         self.num_clients = num_clients  
@@ -32,6 +34,7 @@ class Hotel:
                     return i
             logging.info(f"Client {client_id} added to queue.")
             self.wait_queue.put(client)
+            self.size_queue()
             return None
 
     def check_out(self, room_id):
@@ -45,6 +48,7 @@ class Hotel:
             self.completed_clients += 1  
             
             if not self.wait_queue.empty():
+                self.size_queue()
                 next_client = self.wait_queue.get()
                 next_client_id = next_client.client_id
                 self.rooms[room_id] = next_client
@@ -54,19 +58,32 @@ class Hotel:
         if self.completed_clients == self.num_clients:
             logging.info("All clients have moved out of the rooms.")
 
+    def size_queue(self):
+        queue_len = self.wait_queue.qsize()
+        self.total_queue_len += queue_len
+        self.queue_len_nums += 1
+
     def send_wait_time(self, wait_time):
         with self.lock:
             self.total_wait_time += wait_time
 
     def calculate_statistics(self):
-        avg_queue_length = int(self.total_wait_time / max(1, self.num_clients))
+        avg_queue_length = int(self.total_queue_len / max(1, self.queue_len_nums))
         avg_wait_time = self.total_wait_time / max(1, self.num_clients)
         return avg_queue_length, avg_wait_time
 
 
 class Client(threading.Thread):
+    __CLIENTS__ = {}
+
     def __init__(self, hotel, client_id, t1, t2):
+        if client_id in Client.__CLIENTS__:
+            return Client.__CLIENTS__[client_id]
+
         super().__init__()
+
+        Client.__CLIENTS__[client_id] = self
+
         self.hotel = hotel
         self.client_id = client_id
         self.room_id = None
@@ -116,5 +133,5 @@ def simulate_hotel(num_rooms, num_clients, t1, t2):
 
 
 if __name__ == "__main__":
-    simulate_hotel(num_rooms=5, num_clients=25, t1=2, t2=5)
+    simulate_hotel(num_rooms=25, num_clients=100, t1=2, t2=5)
 
